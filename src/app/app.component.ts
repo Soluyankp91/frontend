@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend';
+  do(arg:any){
+    console.log(1)
+  }
+  do1() {
+    console.log(2);
+  }
 }

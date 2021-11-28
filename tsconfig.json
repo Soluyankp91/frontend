@@ -1,30 +1,40 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true, // TODO: Enable when we update/remove ngrx.
+    "noImplicitReturns": false, // TODO: Enable when we get rid of lagacy code.
     "sourceMap": true,
     "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
     "moduleResolution": "node",
-    "importHelpers": true,
-    "target": "es2017",
-    "module": "es2020",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "downlevelIteration": true,
+    "target": "es2015",
+    "module": "esnext",
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@mv/env": ["src/environments/environment"],
+      "@mv/core/models": ["src/app/core/models/public-api"],
+      "@mv/core/services": ["src/app/core/services/public-api"],
+      "@mv/core/rxjs/operators": ["src/app/core/rxjs/operators/public-api"],
+      "@mv/core/decorators": ["src/app/core/decorators/public-api"],
+      "@mv/core/constants": ["src/app/core/constants/public-api"],
+      "@mv/shared": ["src/app/shared/public-api"],
+      "@mv/legacy/shared/*": ["src/app/legacy/app2/shared/*"],
+      "@mv/legacy/*": ["src/app/legacy/*"],
+      "@mv/test/*": ["src/app/test/*"],
+      "@mv/user-settings/*": ["src/app/user-settings/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": false // TODO: Enable to strict inputs type checking.
   }
 }
